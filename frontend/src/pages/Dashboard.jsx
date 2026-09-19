@@ -1,0 +1,2 @@
+import { Alert, Card } from "react-bootstrap";
+export default function Dashboard() { return <><h1 className="h3">Talent Discovery</h1><Alert variant="info">Foundation environment is ready. Profile intelligence will be enabled in later phases.</Alert><Card body><h2 className="h5">Platform status</h2><p className="mb-0">Connect the FastAPI backend and local demo datasets to begin development.</p></Card></>; }
