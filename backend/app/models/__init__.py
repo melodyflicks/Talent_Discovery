@@ -1,2 +1,33 @@
-from .employee import Employee
-__all__ = ["Employee"]
+from .domain import (
+    Base,
+    User,
+    EmployeeProfile,
+    Skill,
+    EmployeeSkill,
+    SkillEvidence,
+    Role,
+    RoleSkill,
+    RoleMatch,
+    SkillGap,
+    Course,
+    CourseRecommendation,
+    LearningRoadmap,
+    ExternalProfile,
+)
+
+__all__ = [
+    "Base",
+    "User",
+    "EmployeeProfile",
+    "Skill",
+    "EmployeeSkill",
+    "SkillEvidence",
+    "Role",
+    "RoleSkill",
+    "RoleMatch",
+    "SkillGap",
+    "Course",
+    "CourseRecommendation",
+    "LearningRoadmap",
+    "ExternalProfile",
+]
