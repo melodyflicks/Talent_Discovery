@@ -11,9 +11,16 @@ const DOTS = [
   { size: 90, left: "40%", delay: 8, duration: 24 },
 ];
 
+const DEMO_ACCOUNTS = [
+  { email: "hr1@talent.local", password: "12345", role: "HR Lead" },
+  { email: "admin1@talent.local", password: "12345", role: "Admin" },
+  { email: "maya.patel@talent.local", password: "EmployeePassword123!", role: "Employee" },
+  { email: "alex.chen@talent.local", password: "EmployeePassword123!", role: "Employee" },
+];
+
 export default function Login() {
-  const [email, setEmail] = useState("maya.patel@company.com");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("hr1@talent.local");
+  const [password, setPassword] = useState("12345");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { signIn } = useAuth();
@@ -32,6 +39,11 @@ export default function Login() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleDemoClick = (acc) => {
+    setEmail(acc.email);
+    setPassword(acc.password);
   };
 
   return (
@@ -76,7 +88,7 @@ export default function Login() {
               className="form-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@company.com"
+              placeholder="you@talent.local"
               required
               autoComplete="email"
             />
@@ -114,17 +126,14 @@ export default function Login() {
 
         <div style={{ marginTop: 24, padding: "14px 16px", background: "var(--surface-2)", borderRadius: 10, border: "1px solid var(--border)" }}>
           <p style={{ fontSize: 12, fontWeight: 600, color: "var(--text-muted)", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-            Demo credentials
+            Demo Quick Login
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {[
-              { email: "maya.patel@company.com", role: "Employee" },
-              { email: "james.wilson@company.com", role: "HR Manager" },
-            ].map(({ email: e, role }) => (
+            {DEMO_ACCOUNTS.map((acc) => (
               <button
-                key={e}
+                key={acc.email}
                 type="button"
-                onClick={() => setEmail(e)}
+                onClick={() => handleDemoClick(acc)}
                 style={{
                   background: "none",
                   border: "1px solid var(--border)",
@@ -139,8 +148,8 @@ export default function Login() {
                   justifyContent: "space-between",
                 }}
               >
-                <span style={{ fontFamily: "monospace" }}>{e}</span>
-                <span style={{ fontWeight: 600, color: "var(--accent-500)" }}>{role}</span>
+                <span style={{ fontFamily: "monospace" }}>{acc.email}</span>
+                <span style={{ fontWeight: 600, color: "var(--accent-500)" }}>{acc.role}</span>
               </button>
             ))}
           </div>
