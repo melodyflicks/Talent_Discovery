@@ -1,0 +1,1 @@
+Compare a profile to a target role using only supplied skill data.

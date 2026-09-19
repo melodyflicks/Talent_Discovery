@@ -1,0 +1,1 @@
+Map skills only to supplied canonical taxonomy entries.

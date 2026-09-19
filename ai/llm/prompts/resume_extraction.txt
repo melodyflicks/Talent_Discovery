@@ -1,0 +1,1 @@
+Extract factual resume fields and preserve evidence. Do not infer unsupported claims.
